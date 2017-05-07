@@ -4,6 +4,9 @@ Swift framework to inspect, write and patch processes virtual memory.
 ## Dependencies
 - [CryptoSwift](https://github.com/krzyzanowskim/CryptoSwift)
 
+## Note
+`Attach.c` and `Attach.h` is code from [MachOView](https://sourceforge.net/projects/machoview/) and it is subject to its license.
+
 ## License
 MIT License
 
