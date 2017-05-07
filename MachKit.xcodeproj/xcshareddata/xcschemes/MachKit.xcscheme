@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "AAC18D571EBE765400355D3E"
+               BlueprintIdentifier = "AAC18D6A1EBE7A4600355D3E"
                BuildableName = "MachKit.framework"
                BlueprintName = "MachKit"
                ReferencedContainer = "container:MachKit.xcodeproj">
@@ -45,7 +45,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "AAC18D571EBE765400355D3E"
+            BlueprintIdentifier = "AAC18D6A1EBE7A4600355D3E"
             BuildableName = "MachKit.framework"
             BlueprintName = "MachKit"
             ReferencedContainer = "container:MachKit.xcodeproj">
@@ -63,7 +63,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "AAC18D571EBE765400355D3E"
+            BlueprintIdentifier = "AAC18D6A1EBE7A4600355D3E"
             BuildableName = "MachKit.framework"
             BlueprintName = "MachKit"
             ReferencedContainer = "container:MachKit.xcodeproj">

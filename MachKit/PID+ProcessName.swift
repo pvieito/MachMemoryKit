@@ -10,7 +10,7 @@ import Foundation
 
 extension pid_t {
 
-    init?(processName: String) {
+    internal init?(processName: String) {
 
         let pgrepPath = "/usr/bin/pgrep"
 

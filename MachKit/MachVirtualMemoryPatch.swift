@@ -31,6 +31,18 @@ extension MachVirtualMemory {
         }
     }
 
+    /// Modifies the specified expected bytes with some patched bytes at the patch address.
+    ///
+    /// This function will check if the memory at the patch address is the expected one and then
+    /// wil try to modify it with the specified patch.
+    ///
+    /// Note: the expected memory bytes and the patched memory bytes should be of the same length.
+    ///
+    /// - Parameters:
+    ///   - expectedMemoryHexString: Bytes as an hex string expected at the patch address.
+    ///   - patchedMemoryHexString: Bytes as an hex string to write at the patch address.
+    ///   - patchAddress: Address where to modify the memory.
+    /// - Throws: Error while executing the patch.
     public func patch(_ expectedMemoryHexString: String, with patchedMemoryHexString: String, on patchAddress: Address) throws {
 
         let expectedMemory = Array<UInt8>(hex: expectedMemoryHexString)
@@ -47,11 +59,35 @@ extension MachVirtualMemory {
         try self.patch(expectedMemory, with: patchedMemory, on: patchAddress)
     }
 
+    /// Modifies the specified expected data with some patched data at the patch address.
+    ///
+    /// This function will check if the memory at the patch address is the expected one and then
+    /// wil try to modify it with the specified patch.
+    ///
+    /// Note: the expected memory data and the patched memory data should be of the same size.
+    ///
+    /// - Parameters:
+    ///   - expectedMemoryHexString: Data expected at the patch address.
+    ///   - patchedMemoryHexString: Data to write at the patch address.
+    ///   - patchAddress: Address where to modify the memory.
+    /// - Throws: Error while executing the patch.
     public func patch(_ expectedMemory: Data, with patchedMemory: Data, on patchAddress: Address) throws {
 
         try self.patch(expectedMemory.bytes, with: patchedMemory.bytes, on: patchAddress)
     }
 
+    /// Modifies the specified expected bytes with some patched bytes at the patch address.
+    ///
+    /// This function will check if the memory at the patch address is the expected one and then
+    /// wil try to modify it with the specified patch.
+    ///
+    /// Note: the expected memory bytes and the patched memory bytes should be of the same length.
+    ///
+    /// - Parameters:
+    ///   - expectedMemoryHexString: Bytes expected at the patch address.
+    ///   - patchedMemoryHexString: Bytes to write at the patch address.
+    ///   - patchAddress: Address where to modify the memory.
+    /// - Throws: Error while executing the patch.
     public func patch(_ expectedMemory: [UInt8], with patchedMemory: [UInt8], on patchAddress: Address) throws {
 
         let patchSize = Size(patchedMemory.count)
