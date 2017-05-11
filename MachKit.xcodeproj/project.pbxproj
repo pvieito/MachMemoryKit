@@ -19,7 +19,6 @@
 		AAC18D7B1EBE7ABA00355D3E /* MachProcess.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC18D781EBE7ABA00355D3E /* MachProcess.swift */; };
 		AAC18DB61EBE8B9300355D3E /* MachVirtualMemory.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC18DB51EBE8B9300355D3E /* MachVirtualMemory.swift */; };
 		AAC18DB81EBE8E9C00355D3E /* MachError.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC18DB71EBE8E9C00355D3E /* MachError.swift */; };
-		AAC230431EBFE11F008665E3 /* Commander.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAC230401EBFE118008665E3 /* Commander.framework */; };
 		AAFE81791EBFF988008C01A3 /* CommandLineKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAFE81731EBFF97E008C01A3 /* CommandLineKit.framework */; };
 /* End PBXBuildFile section */
 
@@ -44,20 +43,6 @@
 			proxyType = 2;
 			remoteGlobalIDString = 754BE46019693E190098E6F3;
 			remoteInfo = Tests;
-		};
-		AAC2303F1EBFE118008665E3 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = AAC2303A1EBFE118008665E3 /* Commander.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = OBJ_28;
-			remoteInfo = Commander;
-		};
-		AAC230411EBFE118008665E3 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = AAC2303A1EBFE118008665E3 /* Commander.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = OBJ_29;
-			remoteInfo = CommanderTests;
 		};
 		AAFE81721EBFF97E008C01A3 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -104,7 +89,6 @@
 		AAC18DB51EBE8B9300355D3E /* MachVirtualMemory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MachVirtualMemory.swift; sourceTree = "<group>"; };
 		AAC18DB71EBE8E9C00355D3E /* MachError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MachError.swift; sourceTree = "<group>"; };
 		AAC18DBE1EBEB8C300355D3E /* CryptoSwift.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CryptoSwift.xcodeproj; path = ../CryptoSwift/CryptoSwift.xcodeproj; sourceTree = "<group>"; };
-		AAC2303A1EBFE118008665E3 /* Commander.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Commander.xcodeproj; path = ../Commander/Commander.xcodeproj; sourceTree = "<group>"; };
 		AAFE816B1EBFF97E008C01A3 /* CommandLineKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CommandLineKit.xcodeproj; path = ../CommandLineKit/CommandLineKit.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -114,7 +98,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				AAFE81791EBFF988008C01A3 /* CommandLineKit.framework in Frameworks */,
-				AAC230431EBFE11F008665E3 /* Commander.framework in Frameworks */,
 				AAB710AA1EBFC5930087A8EF /* LoggerKit.framework in Frameworks */,
 				AA2BE32A1EBF524C00899D10 /* MachKit.framework in Frameworks */,
 			);
@@ -160,7 +143,6 @@
 			isa = PBXGroup;
 			children = (
 				AAFE816B1EBFF97E008C01A3 /* CommandLineKit.xcodeproj */,
-				AAC2303A1EBFE118008665E3 /* Commander.xcodeproj */,
 				AAB710A41EBFC58D0087A8EF /* LoggerKit.xcodeproj */,
 				AAC18DBE1EBEB8C300355D3E /* CryptoSwift.xcodeproj */,
 				AAC18D6C1EBE7A4600355D3E /* MachKit */,
@@ -208,15 +190,6 @@
 			children = (
 				AAC18DC41EBEB8C300355D3E /* CryptoSwift.framework */,
 				AAC18DC61EBEB8C300355D3E /* Tests.xctest */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		AAC2303B1EBFE118008665E3 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				AAC230401EBFE118008665E3 /* Commander.framework */,
-				AAC230421EBFE118008665E3 /* CommanderTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -315,10 +288,6 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = AAC2303B1EBFE118008665E3 /* Products */;
-					ProjectRef = AAC2303A1EBFE118008665E3 /* Commander.xcodeproj */;
-				},
-				{
 					ProductGroup = AAFE816C1EBFF97E008C01A3 /* Products */;
 					ProjectRef = AAFE816B1EBFF97E008C01A3 /* CommandLineKit.xcodeproj */;
 				},
@@ -359,20 +328,6 @@
 			fileType = wrapper.cfbundle;
 			path = Tests.xctest;
 			remoteRef = AAC18DC51EBEB8C300355D3E /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		AAC230401EBFE118008665E3 /* Commander.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = Commander.framework;
-			remoteRef = AAC2303F1EBFE118008665E3 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		AAC230421EBFE118008665E3 /* CommanderTests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = file;
-			path = CommanderTests.xctest;
-			remoteRef = AAC230411EBFE118008665E3 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		AAFE81731EBFF97E008C01A3 /* CommandLineKit.framework */ = {
