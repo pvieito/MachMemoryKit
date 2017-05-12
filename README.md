@@ -4,6 +4,32 @@ Swift framework to inspect, write and patch processes virtual memory.
 ## Dependencies
 - [CryptoSwift](https://github.com/krzyzanowskim/CryptoSwift)
 
+## Usage
+
+```swift
+import MachKit
+
+guard getuid() == 0 else {
+    print("Error: You have to run this as root.")
+    exit(-1)
+}
+
+do {
+    let process = try MachProcess(processName: "Safari")
+
+    let baseAddres = process.memory.baseAddress
+    let memoryRange = MachVirtualMemory.AddressRange(start: baseAddres, size: 4)
+    
+    let headerBytes = try process.memory.readBytes(on: memoryRange)
+    
+    print("Mach-O Header: \(headerBytes.hexString)")
+}
+catch {
+    print("Error: \(error.localizedDescription)")
+}
+
+```
+
 ## Note
 `Attach.c` and `Attach.h` is code from [MachOView](https://sourceforge.net/projects/machoview/) and it is subject to its license.
 

@@ -10,7 +10,7 @@ import Foundation
 
 /// Class that represents a Mach Process.
 ///
-/// Instanciate it to obtain access to the underlying Virtual Memory.
+/// Instantiate it to obtain access to its underlying Virtual Memory.
 public class MachProcess {
 
     public enum InitializationError: LocalizedError {

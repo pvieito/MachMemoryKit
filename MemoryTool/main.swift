@@ -38,7 +38,7 @@ if helpOption.value {
 Logger.logMode = .commandLine
 Logger.logLevel = verboseOption.value ? .debug : .info
 
-if getuid() != 0 {
+guard getuid() == 0 else {
     Logger.log(error: "You have to run this as root.")
     exit(-1)
 }
