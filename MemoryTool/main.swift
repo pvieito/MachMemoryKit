@@ -1,6 +1,7 @@
 //
 //  main.swift
-//  MachKit
+//  MemoryTool
+//  Tool to patch the memory of a running process.
 //
 //  Created by Pedro José Pereira Vieito on 7/5/17.
 //  Copyright © 2017 Pedro José Pereira Vieito. All rights reserved.
