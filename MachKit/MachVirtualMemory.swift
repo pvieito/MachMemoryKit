@@ -219,6 +219,14 @@ extension MachVirtualMemory.Address {
     }
 }
 
+extension Data {
+
+    /// Hexadecimal representation.
+    public var hexString: String {
+        return "0x".appending(self.toHexString().uppercased())
+    }
+}
+
 extension Array where Element == UInt8 {
 
     /// Hexadecimal representation.
