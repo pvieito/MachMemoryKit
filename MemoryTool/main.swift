@@ -17,7 +17,7 @@ let processOption = StringOption(shortFlag: "p", longFlag: "process", required: 
 let expectedMemoryOption = StringOption(shortFlag: "e", longFlag: "expected", helpMessage: "Expected Memory as an hex string.")
 let patchedMemoryOption = StringOption(shortFlag: "d", longFlag: "patched", helpMessage: "Patched Memory as an hex string.")
 let offsetAddressOption = StringOption(shortFlag: "a", longFlag: "address", helpMessage: "Memory offset address to patch.")
-let verboseOption = BoolOption(shortFlag: "v", longFlag: "verbose", helpMessage: "Verbose Mode.")
+let verboseOption = BoolOption(shortFlag: "v", longFlag: "verbose", helpMessage: "Verbose mode.")
 let helpOption = BoolOption(shortFlag: "h", longFlag: "help", helpMessage: "Prints a help message.")
 
 let cli = CommandLineKit.CommandLine()
