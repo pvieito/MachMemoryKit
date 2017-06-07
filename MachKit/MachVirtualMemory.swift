@@ -7,7 +7,7 @@
 //
 
 import Foundation
-import CryptoSwift
+import FoundationKit
 
 /// Class representing the memory of the process.
 public class MachVirtualMemory {
@@ -115,18 +115,6 @@ public class MachVirtualMemory {
         }
     }
 
-    /// Reads bytes from the memory range specified.
-    ///
-    /// - Parameter addressRange: Memory range to read.
-    /// - Returns: Bytes in the specified memory range.
-    /// - Throws: Error during the read process.
-    public func readBytes(on addressRange: AddressRange) throws -> [UInt8] {
-
-        let data = try self.readData(on: addressRange)
-
-        return data.bytes
-    }
-
     /// Reads data from the memory range specified.
     ///
     /// - Parameter addressRange: Memory range to read.
@@ -150,17 +138,6 @@ public class MachVirtualMemory {
         return Data(bytes: dataPointer, count: Int(dataSize))
     }
 
-    /// Writes data in the specified memory range.
-    ///
-    /// - Parameters:
-    ///   - data: Data to write in the specified memory range.
-    ///   - adressRange: Memory range where to write the data.
-    /// - Throws: Error during the write process.
-    public func write(_ data: Data, on adressRange: AddressRange) throws {
-
-        try self.write(data.bytes, on: adressRange)
-    }
-
     /// Writes bytes in the specified memory range.
     ///
     /// - Parameters:
@@ -169,32 +146,30 @@ public class MachVirtualMemory {
     /// - Throws: Error during the write process.
     public func write(_ hexString: String, on adressRange: AddressRange) throws {
 
-        let bytes = Array<UInt8>(hex: hexString)
-
-        guard bytes.count > 0 else {
+        guard let data = Data(hexString: hexString) else {
             throw InputError.invalidString(hexString)
         }
 
-        try self.write(bytes, on: adressRange)
+        try self.write(data, on: adressRange)
     }
 
     /// Writes bytes in the specified memory range.
     ///
     /// - Parameters:
-    ///   - bytes: Bytes to write in the specified memory range.
+    ///   - data: Data to write in the specified memory range.
     ///   - adressRange: Memory range where to write the bytes.
     /// - Throws: Error during the write process.
-    public func write(_ bytes: [UInt8], on adressRange: AddressRange) throws {
+    public func write(_ data: Data, on adressRange: AddressRange) throws {
 
-        guard bytes.count >= Int(adressRange.size) else {
+        guard data.count >= Int(adressRange.size) else {
             throw MachError(.invalidAddress)
         }
 
-        try bytes.withUnsafeBufferPointer { (bufferPointer) in
+        var unsafeData = data
 
-            guard let pointerAddress = bufferPointer.baseAddress?.hashValue else {
-                throw MachError(.invalidAddress)
-            }
+        try withUnsafePointer(to: &unsafeData) { (pointer) in
+
+            let pointerAddress = pointer.hashValue
 
             let result = mach_vm_write(self.task, adressRange.start, vm_offset_t(pointerAddress), mach_msg_type_number_t(adressRange.size))
 
@@ -216,21 +191,5 @@ extension MachVirtualMemory.Address {
         let hexString = hexString.hasPrefix("0x") ? hexString.substring(from: hexString.index(hexString.startIndex, offsetBy: 2)) : hexString
 
         self.init(hexString, radix: 16)
-    }
-}
-
-extension Data {
-
-    /// Hexadecimal representation.
-    public var hexString: String {
-        return "0x".appending(self.toHexString().uppercased())
-    }
-}
-
-extension Array where Element == UInt8 {
-
-    /// Hexadecimal representation.
-    public var hexString: String {
-        return "0x".appending(self.toHexString().uppercased())
     }
 }

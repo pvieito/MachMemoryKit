@@ -1,9 +1,6 @@
 # MachKit
 Swift framework to inspect, write and patch processes virtual memory.
 
-## Dependencies
-- [CryptoSwift](https://github.com/krzyzanowskim/CryptoSwift)
-
 ## Usage
 
 ```swift
