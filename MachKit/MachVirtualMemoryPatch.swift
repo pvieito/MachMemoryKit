@@ -25,7 +25,7 @@ extension MachVirtualMemory {
             case .memoryNotPatched(let finalMemory):
                 return "Memory not patched: \(finalMemory.hexString)."
             case .memoryNotExpected(let originalMemory, let expectedMemory):
-                return "Memory data different to the expected: \(originalMemory.hexString) vs \(expectedMemory.hexString)."
+                return "Memory data different to the expected. Original: \(originalMemory.hexString) vs. Expected: \(expectedMemory.hexString)."
             }
         }
     }

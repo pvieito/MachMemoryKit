@@ -23,6 +23,20 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		AA4CD73A1F0739A60070DD7C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AA7F02011EE78B3F00597173 /* FoundationKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = AA912C1A1EE96CF2002DD639;
+			remoteInfo = FoundationKitWatch;
+		};
+		AA4CD73E1F0739A60070DD7C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AAB710A41EBFC58D0087A8EF /* LoggerKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = AA912BE01EE96C56002DD639;
+			remoteInfo = LoggerKitWatch;
+		};
 		AA7F02051EE78B4000597173 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = AA7F02011EE78B3F00597173 /* FoundationKit.xcodeproj */;
@@ -78,8 +92,8 @@
 		AAC18D6B1EBE7A4600355D3E /* MachKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MachKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AAC18D6D1EBE7A4600355D3E /* MachKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MachKit.h; sourceTree = "<group>"; };
 		AAC18D6E1EBE7A4600355D3E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		AAC18D761EBE7ABA00355D3E /* Attach.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = Attach.c; sourceTree = "<group>"; };
-		AAC18D771EBE7ABA00355D3E /* Attach.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Attach.h; sourceTree = "<group>"; };
+		AAC18D761EBE7ABA00355D3E /* Attach.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = Attach.c; path = Attach/Attach.c; sourceTree = "<group>"; };
+		AAC18D771EBE7ABA00355D3E /* Attach.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Attach.h; path = Attach/Attach.h; sourceTree = "<group>"; };
 		AAC18D781EBE7ABA00355D3E /* MachProcess.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MachProcess.swift; sourceTree = "<group>"; };
 		AAC18DB51EBE8B9300355D3E /* MachVirtualMemory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MachVirtualMemory.swift; sourceTree = "<group>"; };
 		AAC18DB71EBE8E9C00355D3E /* MachError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MachError.swift; sourceTree = "<group>"; };
@@ -121,6 +135,7 @@
 			isa = PBXGroup;
 			children = (
 				AA7F02061EE78B4000597173 /* FoundationKit.framework */,
+				AA4CD73B1F0739A60070DD7C /* FoundationKit.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -138,6 +153,7 @@
 			isa = PBXGroup;
 			children = (
 				AAB710A91EBFC58D0087A8EF /* LoggerKit.framework */,
+				AA4CD73F1F0739A60070DD7C /* LoggerKit.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -303,6 +319,20 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
+		AA4CD73B1F0739A60070DD7C /* FoundationKit.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = FoundationKit.framework;
+			remoteRef = AA4CD73A1F0739A60070DD7C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		AA4CD73F1F0739A60070DD7C /* LoggerKit.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = LoggerKit.framework;
+			remoteRef = AA4CD73E1F0739A60070DD7C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		AA7F02061EE78B4000597173 /* FoundationKit.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;

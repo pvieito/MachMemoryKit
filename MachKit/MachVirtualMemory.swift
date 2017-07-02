@@ -22,7 +22,18 @@ public class MachVirtualMemory {
             }
         }
     }
-
+    
+    public enum ASLRError: LocalizedError {
+        case errorObtainingBaseAddress
+        
+        public var errorDescription: String? {
+            switch self {
+            case .errorObtainingBaseAddress:
+                return "Error obtaining the process memory base address."
+            }
+        }
+    }
+        
     /// Options for the protection of the memory.
     public struct Protection: OptionSet {
         public let rawValue: vm_prot_t
@@ -74,27 +85,27 @@ public class MachVirtualMemory {
 
     internal init(pid: pid_t) throws {
         self.pid = pid
-
-        var task = mach_port_name_t()
+        
+        var task: mach_port_name_t = 0
         var result = task_for_pid(mach_task_self_, self.pid, &task)
-
+        
         guard result == KERN_SUCCESS else {
             throw MachError(result)
         }
-
+        
         var baseAddress = mach_vm_address_t()
-
+        
         result = find_main_binary(pid, &baseAddress)
         guard result == KERN_SUCCESS else {
             throw MachError(result)
         }
-
+        
         var aslrOffset = Address()
-
+        
         guard get_image_size(baseAddress, pid, &aslrOffset) != -1 else {
-            throw MachError(.aborted)
+            throw ASLRError.errorObtainingBaseAddress
         }
-
+        
         self.aslrOffset = aslrOffset
         self.baseAddress = baseAddress
         self.task = task
@@ -104,11 +115,11 @@ public class MachVirtualMemory {
     ///
     /// - Parameters:
     ///   - protection: Protection to set to the range of memory.
-    ///   - adressRange: The address range where the protection change will the executed.
+    ///   - addressRange: The address range where the protection change will the executed.
     /// - Throws: Error during the execution.
-    public func setProtection(to protection: Protection, on adressRange: AddressRange) throws {
-
-        let result = mach_vm_protect(self.task, adressRange.start, adressRange.size, 0, protection.rawValue)
+    public func setProtection(to protection: Protection, on addressRange: AddressRange) throws {
+        
+        let result = mach_vm_protect(self.task, addressRange.start, addressRange.size, 0, protection.rawValue)
 
         guard result == KERN_SUCCESS else {
             throw MachError(result)
@@ -124,9 +135,9 @@ public class MachVirtualMemory {
 
         var dataOffset = vm_offset_t()
         var dataSize = mach_msg_type_number_t()
-
+        
         let result = mach_vm_read(self.task, addressRange.start, addressRange.size, &dataOffset, &dataSize)
-
+        
         guard result == KERN_SUCCESS else {
             throw MachError(result)
         }
@@ -142,36 +153,38 @@ public class MachVirtualMemory {
     ///
     /// - Parameters:
     ///   - hexString: Bytes as an hexadecimal string to write in the specified memory range.
-    ///   - adressRange: Memory range where to write the bytes.
+    ///   - addressRange: Memory range where to write the bytes.
     /// - Throws: Error during the write process.
-    public func write(_ hexString: String, on adressRange: AddressRange) throws {
+    public func write(_ hexString: String, on addressRange: AddressRange) throws {
 
         guard let data = Data(hexString: hexString) else {
             throw InputError.invalidString(hexString)
         }
 
-        try self.write(data, on: adressRange)
+        try self.write(data, on: addressRange)
     }
 
     /// Writes bytes in the specified memory range.
     ///
     /// - Parameters:
     ///   - data: Data to write in the specified memory range.
-    ///   - adressRange: Memory range where to write the bytes.
+    ///   - addressRange: Memory range where to write the bytes.
     /// - Throws: Error during the write process.
-    public func write(_ data: Data, on adressRange: AddressRange) throws {
+    public func write(_ data: Data, on addressRange: AddressRange) throws {
 
-        guard data.count >= Int(adressRange.size) else {
+        guard data.count >= Int(addressRange.size) else {
             throw MachError(.invalidAddress)
         }
+        
+        let bytes = Array<UInt8>(data)
+        
+        try bytes.withUnsafeBufferPointer { (bufferPointer) in
+            
+            guard let pointerAddress = bufferPointer.baseAddress?.hashValue else {
+                throw MachError(.invalidAddress)
+            }
 
-        var unsafeData = data
-
-        try withUnsafePointer(to: &unsafeData) { (pointer) in
-
-            let pointerAddress = pointer.hashValue
-
-            let result = mach_vm_write(self.task, adressRange.start, vm_offset_t(pointerAddress), mach_msg_type_number_t(adressRange.size))
+            let result = mach_vm_write(self.task, addressRange.start, vm_offset_t(pointerAddress), mach_msg_type_number_t(addressRange.size))
 
             guard result == KERN_SUCCESS else {
                 throw MachError(result)

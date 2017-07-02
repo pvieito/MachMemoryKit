@@ -43,15 +43,14 @@ guard getuid() == 0 else {
     exit(-1)
 }
 
-do {
-
+do {    
     guard let processString = processOption.value else {
         Logger.log(error: "No process specified.")
         exit(EX_USAGE)
     }
 
     var process: MachProcess
-
+    
     if let pid = Int(processString) {
         try process = MachProcess(pid: pid)
     }
@@ -74,7 +73,9 @@ do {
     }
 
     let patchAddress = offsetAddress + process.memory.baseAddress
-
+    
+    Logger.log(info: "Patch Address: \(patchAddress.hexString)")
+    
     try process.memory.patch(expectedMemory, with: patchedMemory, on: patchAddress)
 
     Logger.log(success: "Memory correctly patched at \(patchAddress.hexString): \(expectedMemory) -> \(patchedMemory)")
