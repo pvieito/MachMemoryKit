@@ -201,8 +201,8 @@ extension MachVirtualMemory.Address {
     }
 
     public init?(hexString: String) {
-        let hexString = hexString.hasPrefix("0x") ? hexString.substring(from: hexString.index(hexString.startIndex, offsetBy: 2)) : hexString
-
+        let hexString = hexString.hasPrefix("0x") ? String(hexString.suffix(from: hexString.index(hexString.startIndex, offsetBy: 2))) : hexString
+        
         self.init(hexString, radix: 16)
     }
 }
