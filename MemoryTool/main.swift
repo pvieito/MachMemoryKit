@@ -24,7 +24,7 @@ let cli = CommandLineKit.CommandLine()
 cli.addOptions(processOption, expectedMemoryOption, patchedMemoryOption, offsetAddressOption, verboseOption, helpOption)
 
 do {
-    try cli.parse()
+    try cli.parse(strict: true)
 } catch {
     cli.printUsage(error)
     exit(EX_USAGE)
