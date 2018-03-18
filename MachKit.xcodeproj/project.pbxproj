@@ -51,6 +51,13 @@
 			remoteGlobalIDString = AA2563C41E57639E0037CBED;
 			remoteInfo = FoundationKit;
 		};
+		AA8230B0205F134F007E6D16 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AA7F02011EE78B3F00597173 /* FoundationKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = AAD31D251F883C8800C056DD;
+			remoteInfo = FoundationKitTests;
+		};
 		AAB710A81EBFC58D0087A8EF /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = AAB710A41EBFC58D0087A8EF /* LoggerKit.xcodeproj */;
@@ -136,6 +143,7 @@
 			children = (
 				AA7F02061EE78B4000597173 /* FoundationKit.framework */,
 				AA4CD73B1F0739A60070DD7C /* FoundationKit.framework */,
+				AA8230B1205F134F007E6D16 /* FoundationKitTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -340,6 +348,13 @@
 			remoteRef = AA7F02051EE78B4000597173 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
+		AA8230B1205F134F007E6D16 /* FoundationKitTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = FoundationKitTests.xctest;
+			remoteRef = AA8230B0205F134F007E6D16 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		AAB710A91EBFC58D0087A8EF /* LoggerKit.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
@@ -405,8 +420,8 @@
 				CREATE_INFOPLIST_SECTION_IN_BINARY = YES;
 				DEVELOPMENT_TEAM = T7MC635YG5;
 				INFOPLIST_FILE = MemoryTool/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "@executable_path /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx";
-				LIBRARY_SEARCH_PATHS = /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx;
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path $(TOOLCHAIN_DIR)/usr/lib/swift/macosx";
+				LIBRARY_SEARCH_PATHS = "$(TOOLCHAIN_DIR)/usr/lib/swift/macosx";
 				PRODUCT_BUNDLE_IDENTIFIER = com.pvieito.MachKit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -419,8 +434,8 @@
 				CREATE_INFOPLIST_SECTION_IN_BINARY = YES;
 				DEVELOPMENT_TEAM = T7MC635YG5;
 				INFOPLIST_FILE = MemoryTool/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "@executable_path /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx";
-				LIBRARY_SEARCH_PATHS = /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx;
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path $(TOOLCHAIN_DIR)/usr/lib/swift/macosx";
+				LIBRARY_SEARCH_PATHS = "$(TOOLCHAIN_DIR)/usr/lib/swift/macosx";
 				PRODUCT_BUNDLE_IDENTIFIER = com.pvieito.MachKit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
