@@ -12,7 +12,6 @@ import MachKit
 import CommandLineKit
 import LoggerKit
 
-
 let processOption = StringOption(shortFlag: "p", longFlag: "process", required: true, helpMessage: "Process name or PID.")
 let expectedMemoryOption = StringOption(shortFlag: "e", longFlag: "expected", helpMessage: "Expected Memory as an hex string.")
 let patchedMemoryOption = StringOption(shortFlag: "d", longFlag: "patched", helpMessage: "Patched Memory as an hex string.")
@@ -39,14 +38,12 @@ Logger.logMode = .commandLine
 Logger.logLevel = verboseOption.value ? .debug : .info
 
 guard getuid() == 0 else {
-    Logger.log(error: "You have to run this as root.")
-    exit(-1)
+    Logger.log(fatalError: "You have to run this as root.")
 }
 
 do {    
     guard let processString = processOption.value else {
-        Logger.log(error: "No process specified.")
-        exit(EX_USAGE)
+        Logger.log(fatalError: "No process specified.")
     }
 
     var process: MachProcess
@@ -68,8 +65,7 @@ do {
     }
 
     guard let offsetAddress = MachVirtualMemory.Address(hexString: offsetAddressString) else {
-        Logger.log(error: "Offset Address not valid.")
-        exit(-1)
+        Logger.log(fatalError: "Offset Address not valid.")
     }
 
     let patchAddress = offsetAddress + process.memory.baseAddress
@@ -81,5 +77,5 @@ do {
     Logger.log(success: "Memory correctly patched at \(patchAddress.hexString): \(expectedMemory) -> \(patchedMemory)")
 }
 catch {
-    Logger.log(error: error.localizedDescription)
+    Logger.log(fatalError: error.localizedDescription)
 }
