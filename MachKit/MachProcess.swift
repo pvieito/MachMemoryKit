@@ -12,7 +12,6 @@ import Foundation
 ///
 /// Instantiate it to obtain access to its underlying Virtual Memory.
 public class MachProcess {
-
     public enum InitializationError: LocalizedError {
         case pidNotFoundForProcessName(String)
 

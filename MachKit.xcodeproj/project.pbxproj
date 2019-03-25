@@ -12,10 +12,10 @@
 		AA4AC3851EBF5FCC007E1A9D /* MachVirtualMemoryPatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA4AC3841EBF5FCC007E1A9D /* MachVirtualMemoryPatch.swift */; };
 		AA4AC3AA1EBF89D2007E1A9D /* PID+ProcessName.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA4AC3A91EBF89D2007E1A9D /* PID+ProcessName.swift */; };
 		AA7F02121EE78C4A00597173 /* FoundationKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA7F02061EE78B4000597173 /* FoundationKit.framework */; };
+		AA804E432246BA4F0006A522 /* MachAttach.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA804E392246B9CD0006A522 /* MachAttach.framework */; };
+		AA804E522246C29B0006A522 /* MachAttach.c in Sources */ = {isa = PBXBuildFile; fileRef = AAC18D761EBE7ABA00355D3E /* MachAttach.c */; };
+		AA804E532246C4630006A522 /* MachAttach.h in Headers */ = {isa = PBXBuildFile; fileRef = AA804E4A2246C2780006A522 /* MachAttach.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AAB710AA1EBFC5930087A8EF /* LoggerKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAB710A91EBFC58D0087A8EF /* LoggerKit.framework */; };
-		AAC18D6F1EBE7A4600355D3E /* MachKit.h in Headers */ = {isa = PBXBuildFile; fileRef = AAC18D6D1EBE7A4600355D3E /* MachKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		AAC18D791EBE7ABA00355D3E /* Attach.c in Sources */ = {isa = PBXBuildFile; fileRef = AAC18D761EBE7ABA00355D3E /* Attach.c */; };
-		AAC18D7A1EBE7ABA00355D3E /* Attach.h in Headers */ = {isa = PBXBuildFile; fileRef = AAC18D771EBE7ABA00355D3E /* Attach.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AAC18D7B1EBE7ABA00355D3E /* MachProcess.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC18D781EBE7ABA00355D3E /* MachProcess.swift */; };
 		AAC18DB61EBE8B9300355D3E /* MachVirtualMemory.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC18DB51EBE8B9300355D3E /* MachVirtualMemory.swift */; };
 		AAC18DB81EBE8E9C00355D3E /* MachError.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC18DB71EBE8E9C00355D3E /* MachError.swift */; };
@@ -50,6 +50,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = AA2563C41E57639E0037CBED;
 			remoteInfo = FoundationKit;
+		};
+		AA804E2D2246B7830006A522 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AAFE816B1EBFF97E008C01A3 /* CommandLineKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = AABB3B53220FB42A00DEE6F4;
+			remoteInfo = CommandLineKitTests;
 		};
 		AA8230B0205F134F007E6D16 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -93,14 +100,16 @@
 		AA4AC3A91EBF89D2007E1A9D /* PID+ProcessName.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "PID+ProcessName.swift"; sourceTree = "<group>"; };
 		AA7F02011EE78B3F00597173 /* FoundationKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = FoundationKit.xcodeproj; path = ../FoundationKit/FoundationKit.xcodeproj; sourceTree = "<group>"; };
 		AA7F020A1EE78BDE00597173 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		AAB70F491EBFA68F0087A8EF /* amfid_patch.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = amfid_patch.py; sourceTree = "<group>"; };
-		AAB70F4A1EBFA68F0087A8EF /* aslr.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = aslr.c; sourceTree = "<group>"; };
+		AA804E332246B7980006A522 /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
+		AA804E392246B9CD0006A522 /* MachAttach.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MachAttach.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AA804E3B2246B9CD0006A522 /* MachAttach.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MachAttach.h; sourceTree = "<group>"; };
+		AA804E3C2246B9CD0006A522 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AA804E412246B9FA0006A522 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AA804E4A2246C2780006A522 /* MachAttach.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MachAttach.h; path = include/MachAttach.h; sourceTree = "<group>"; };
 		AAB710A41EBFC58D0087A8EF /* LoggerKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = LoggerKit.xcodeproj; path = ../LoggerKit/LoggerKit.xcodeproj; sourceTree = "<group>"; };
 		AAC18D6B1EBE7A4600355D3E /* MachKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MachKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		AAC18D6D1EBE7A4600355D3E /* MachKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MachKit.h; sourceTree = "<group>"; };
 		AAC18D6E1EBE7A4600355D3E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		AAC18D761EBE7ABA00355D3E /* Attach.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = Attach.c; path = Attach/Attach.c; sourceTree = "<group>"; };
-		AAC18D771EBE7ABA00355D3E /* Attach.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Attach.h; path = Attach/Attach.h; sourceTree = "<group>"; };
+		AAC18D761EBE7ABA00355D3E /* MachAttach.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = MachAttach.c; sourceTree = "<group>"; };
 		AAC18D781EBE7ABA00355D3E /* MachProcess.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MachProcess.swift; sourceTree = "<group>"; };
 		AAC18DB51EBE8B9300355D3E /* MachVirtualMemory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MachVirtualMemory.swift; sourceTree = "<group>"; };
 		AAC18DB71EBE8E9C00355D3E /* MachError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MachError.swift; sourceTree = "<group>"; };
@@ -118,10 +127,18 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		AA804E362246B9CD0006A522 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		AAC18D671EBE7A4600355D3E /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AA804E432246BA4F0006A522 /* MachAttach.framework in Frameworks */,
 				AA7F02121EE78C4A00597173 /* FoundationKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -148,13 +165,20 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		AAB70F481EBFA68F0087A8EF /* Legacy */ = {
+		AA804E3A2246B9CD0006A522 /* MachAttach */ = {
 			isa = PBXGroup;
 			children = (
-				AAB70F491EBFA68F0087A8EF /* amfid_patch.py */,
-				AAB70F4A1EBFA68F0087A8EF /* aslr.c */,
+				AA804E3B2246B9CD0006A522 /* MachAttach.h */,
+				AA804E3C2246B9CD0006A522 /* Info.plist */,
 			);
-			path = Legacy;
+			path = MachAttach;
+			sourceTree = "<group>";
+		};
+		AA804E422246BA4F0006A522 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		AAB710A51EBFC58D0087A8EF /* Products */ = {
@@ -172,9 +196,13 @@
 				AA7F02011EE78B3F00597173 /* FoundationKit.xcodeproj */,
 				AAFE816B1EBFF97E008C01A3 /* CommandLineKit.xcodeproj */,
 				AAB710A41EBFC58D0087A8EF /* LoggerKit.xcodeproj */,
+				AA804E332246B7980006A522 /* Package.swift */,
+				AAC18D7C1EBE7AC800355D3E /* MachAttach */,
 				AAC18D6C1EBE7A4600355D3E /* MachKit */,
 				AA2BE3191EBF4F4D00899D10 /* MemoryTool */,
+				AA804E3A2246B9CD0006A522 /* MachAttach */,
 				AAC18D3F1EBE5B9100355D3E /* Products */,
+				AA804E422246BA4F0006A522 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -183,6 +211,7 @@
 			children = (
 				AAC18D6B1EBE7A4600355D3E /* MachKit.framework */,
 				AA2BE3181EBF4F4D00899D10 /* MemoryTool */,
+				AA804E392246B9CD0006A522 /* MachAttach.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -195,27 +224,26 @@
 				AA4AC3841EBF5FCC007E1A9D /* MachVirtualMemoryPatch.swift */,
 				AAC18DB71EBE8E9C00355D3E /* MachError.swift */,
 				AA4AC3A91EBF89D2007E1A9D /* PID+ProcessName.swift */,
-				AAC18D6D1EBE7A4600355D3E /* MachKit.h */,
 				AAC18D6E1EBE7A4600355D3E /* Info.plist */,
-				AAC18D7C1EBE7AC800355D3E /* Attach */,
-				AAB70F481EBFA68F0087A8EF /* Legacy */,
 			);
 			path = MachKit;
 			sourceTree = "<group>";
 		};
-		AAC18D7C1EBE7AC800355D3E /* Attach */ = {
+		AAC18D7C1EBE7AC800355D3E /* MachAttach */ = {
 			isa = PBXGroup;
 			children = (
-				AAC18D761EBE7ABA00355D3E /* Attach.c */,
-				AAC18D771EBE7ABA00355D3E /* Attach.h */,
+				AA804E4A2246C2780006A522 /* MachAttach.h */,
+				AAC18D761EBE7ABA00355D3E /* MachAttach.c */,
+				AA804E412246B9FA0006A522 /* Info.plist */,
 			);
-			name = Attach;
+			path = MachAttach;
 			sourceTree = "<group>";
 		};
 		AAFE816C1EBFF97E008C01A3 /* Products */ = {
 			isa = PBXGroup;
 			children = (
 				AAFE81731EBFF97E008C01A3 /* CommandLineKit.framework */,
+				AA804E2E2246B7830006A522 /* CommandLineKitTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -223,12 +251,18 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
+		AA804E342246B9CD0006A522 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AA804E532246C4630006A522 /* MachAttach.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		AAC18D681EBE7A4600355D3E /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AAC18D6F1EBE7A4600355D3E /* MachKit.h in Headers */,
-				AAC18D7A1EBE7ABA00355D3E /* Attach.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -251,6 +285,24 @@
 			productName = AmfidEvader;
 			productReference = AA2BE3181EBF4F4D00899D10 /* MemoryTool */;
 			productType = "com.apple.product-type.tool";
+		};
+		AA804E382246B9CD0006A522 /* MachAttach */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AA804E3E2246B9CD0006A522 /* Build configuration list for PBXNativeTarget "MachAttach" */;
+			buildPhases = (
+				AA804E342246B9CD0006A522 /* Headers */,
+				AA804E352246B9CD0006A522 /* Sources */,
+				AA804E362246B9CD0006A522 /* Frameworks */,
+				AA804E372246B9CD0006A522 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MachAttach;
+			productName = MachAttach;
+			productReference = AA804E392246B9CD0006A522 /* MachAttach.framework */;
+			productType = "com.apple.product-type.framework";
 		};
 		AAC18D6A1EBE7A4600355D3E /* MachKit */ = {
 			isa = PBXNativeTarget;
@@ -278,29 +330,35 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0830;
-				LastUpgradeCheck = 1000;
+				LastUpgradeCheck = 1020;
 				ORGANIZATIONNAME = "Pedro José Pereira Vieito";
 				TargetAttributes = {
 					AA2BE3171EBF4F4D00899D10 = {
 						CreatedOnToolsVersion = 8.3.2;
 						DevelopmentTeam = T7MC635YG5;
-						LastSwiftMigration = 1000;
+						LastSwiftMigration = 1020;
+						ProvisioningStyle = Automatic;
+					};
+					AA804E382246B9CD0006A522 = {
+						CreatedOnToolsVersion = 10.2;
+						DevelopmentTeam = T7MC635YG5;
 						ProvisioningStyle = Automatic;
 					};
 					AAC18D6A1EBE7A4600355D3E = {
 						CreatedOnToolsVersion = 8.3.2;
 						DevelopmentTeam = T7MC635YG5;
-						LastSwiftMigration = 1000;
+						LastSwiftMigration = 1020;
 						ProvisioningStyle = Automatic;
 					};
 				};
 			};
 			buildConfigurationList = AAC18D391EBE5B9100355D3E /* Build configuration list for PBXProject "MachKit" */;
 			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
 			mainGroup = AAC18D351EBE5B9100355D3E;
 			productRefGroup = AAC18D3F1EBE5B9100355D3E /* Products */;
@@ -323,6 +381,7 @@
 			targets = (
 				AAC18D6A1EBE7A4600355D3E /* MachKit */,
 				AA2BE3171EBF4F4D00899D10 /* MemoryTool */,
+				AA804E382246B9CD0006A522 /* MachAttach */,
 			);
 		};
 /* End PBXProject section */
@@ -349,6 +408,13 @@
 			remoteRef = AA7F02051EE78B4000597173 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
+		AA804E2E2246B7830006A522 /* CommandLineKitTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = CommandLineKitTests.xctest;
+			remoteRef = AA804E2D2246B7830006A522 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		AA8230B1205F134F007E6D16 /* FoundationKitTests.xctest */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
@@ -373,6 +439,13 @@
 /* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
+		AA804E372246B9CD0006A522 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		AAC18D691EBE7A4600355D3E /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -391,6 +464,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		AA804E352246B9CD0006A522 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AA804E522246C29B0006A522 /* MachAttach.c in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		AAC18D661EBE7A4600355D3E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -398,7 +479,6 @@
 				AA4AC3AA1EBF89D2007E1A9D /* PID+ProcessName.swift in Sources */,
 				AAC18DB81EBE8E9C00355D3E /* MachError.swift in Sources */,
 				AAC18DB61EBE8B9300355D3E /* MachVirtualMemory.swift in Sources */,
-				AAC18D791EBE7ABA00355D3E /* Attach.c in Sources */,
 				AA4AC3851EBF5FCC007E1A9D /* MachVirtualMemoryPatch.swift in Sources */,
 				AAC18D7B1EBE7ABA00355D3E /* MachProcess.swift in Sources */,
 			);
@@ -425,7 +505,7 @@
 				LIBRARY_SEARCH_PATHS = "$(TOOLCHAIN_DIR)/usr/lib/swift/macosx";
 				PRODUCT_BUNDLE_IDENTIFIER = com.pvieito.MachKit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -439,7 +519,66 @@
 				LIBRARY_SEARCH_PATHS = "$(TOOLCHAIN_DIR)/usr/lib/swift/macosx";
 				PRODUCT_BUNDLE_IDENTIFIER = com.pvieito.MachKit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		AA804E3F2246B9CD0006A522 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = T7MC635YG5;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = MachAttach/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.pvieito.MachAttach;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		AA804E402246B9CD0006A522 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = T7MC635YG5;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = MachAttach/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.pvieito.MachAttach;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				VERSION_INFO_PREFIX = "";
 			};
 			name = Release;
 		};
@@ -575,7 +714,7 @@
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				VERSION_INFO_PREFIX = "";
 			};
 			name = Debug;
@@ -600,7 +739,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				VERSION_INFO_PREFIX = "";
 			};
 			name = Release;
@@ -613,6 +752,15 @@
 			buildConfigurations = (
 				AA2BE31D1EBF4F4D00899D10 /* Debug */,
 				AA2BE31E1EBF4F4D00899D10 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AA804E3E2246B9CD0006A522 /* Build configuration list for PBXNativeTarget "MachAttach" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AA804E3F2246B9CD0006A522 /* Debug */,
+				AA804E402246B9CD0006A522 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

@@ -9,11 +9,8 @@
 import Foundation
 
 extension pid_t {
-
     internal init?(processName: String) {
-
         let pgrepPath = "/usr/bin/pgrep"
-
         guard FileManager.default.fileExists(atPath: pgrepPath) else {
             return nil
         }
@@ -27,7 +24,6 @@ extension pid_t {
         task.launch()
 
         let data = pipe.fileHandleForReading.readDataToEndOfFile()
-
         guard let outputComponents = String(data: data, encoding: String.Encoding.utf8)?.components(separatedBy: "\n") else {
             return nil
         }

@@ -9,14 +9,11 @@
 import Foundation
 
 extension MachError {
-
     init(_ code: Int32) {
-
         guard let errorCode = MachErrorCode(rawValue: code) else {
             self.init(MachErrorCode.notSupported)
             return
         }
-
         self.init(errorCode)
     }
 }

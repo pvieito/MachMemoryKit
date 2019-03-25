@@ -9,7 +9,6 @@
 import Foundation
 
 extension MachVirtualMemory {
-
     public enum PatchError: LocalizedError {
         case sizeMismatch
         case alreadyPatched
@@ -68,7 +67,6 @@ extension MachVirtualMemory {
     ///   - patchAddress: Address where to modify the memory.
     /// - Throws: Error while executing the patch.
     public func patch(_ expectedMemory: Data, with patchedMemory: Data, on patchAddress: Address) throws {
-
         let patchSize = Size(patchedMemory.count)
         let expectedSize = Size(expectedMemory.count)
 
@@ -77,9 +75,7 @@ extension MachVirtualMemory {
         }
 
         let patchRange = AddressRange(start: patchAddress, size: patchSize)
-
         try self.setProtection(to: .all, on: patchRange)
-
         let originalMemory = try self.readData(on: patchRange)
 
         guard originalMemory != patchedMemory else {
@@ -91,9 +87,7 @@ extension MachVirtualMemory {
         }
 
         try self.write(patchedMemory, on: patchRange)
-
         let finalMemory = try self.readData(on: patchRange)
-
         guard finalMemory == patchedMemory else {
             throw PatchError.memoryNotPatched(finalMemory)
         }
