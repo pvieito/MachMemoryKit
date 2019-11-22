@@ -2,6 +2,8 @@
 .*
 !.gitignore
 !.gitkeep
+!.github
+!.travis.yml
 
 # Swift
 build/

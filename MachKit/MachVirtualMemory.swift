@@ -75,7 +75,7 @@ public class MachVirtualMemory {
     private let pid: pid_t
     private let task: mach_port_name_t
 
-    internal let machoBaseAddress: Address = 0x100000000
+    internal static let machoBaseAddress: Address = 0x100000000
 
     /// Base address of the executable in the memory layout.
     public let baseAddress: Address
@@ -188,7 +188,6 @@ extension MachVirtualMemory.Address {
 
     public init?(hexString: String) {
         let hexString = hexString.hasPrefix("0x") ? String(hexString.suffix(from: hexString.index(hexString.startIndex, offsetBy: 2))) : hexString
-        
         self.init(hexString, radix: 16)
     }
 }

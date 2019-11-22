@@ -6,8 +6,8 @@ let package = Package(
     name: "MachKit",
     products: [
         .executable(
-            name: "MemoryTool",
-            targets: ["MemoryTool"]
+            name: "MachMemoryTool",
+            targets: ["MachMemoryTool"]
         ),
         .library(
             name: "MachKit",
@@ -21,9 +21,9 @@ let package = Package(
     ],
     targets: [
         .target(
-            name: "MemoryTool",
+            name: "MachMemoryTool",
             dependencies: ["MachKit", "LoggerKit", "CommandLineKit"],
-            path: "MemoryTool"
+            path: "MachMemoryTool"
         ),
         .target(
             name: "MachKit",
@@ -33,6 +33,10 @@ let package = Package(
         .target(
             name: "MachAttach",
             path: "MachAttach"
+        ),
+        .testTarget(
+            name: "MachKitTests",
+            dependencies: ["MachKit"]
         )
     ]
 )

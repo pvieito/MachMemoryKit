@@ -1,6 +1,6 @@
 //
 //  main.swift
-//  MemoryTool
+//  MachMemoryTool
 //  Tool to patch the memory of a running process.
 //
 //  Created by Pedro José Pereira Vieito on 7/5/17.
@@ -12,7 +12,7 @@ import MachKit
 import CommandLineKit
 import LoggerKit
 
-let processOption = StringOption(shortFlag: "p", longFlag: "process", required: true, helpMessage: "Process name or PID.")
+let inputOption = StringOption(shortFlag: "i", longFlag: "input", required: true, helpMessage: "Input process name or PID.")
 let expectedMemoryOption = StringOption(shortFlag: "e", longFlag: "expected", helpMessage: "Expected Memory as an hex string.")
 let patchedMemoryOption = StringOption(shortFlag: "d", longFlag: "patched", helpMessage: "Patched Memory as an hex string.")
 let offsetAddressOption = StringOption(shortFlag: "a", longFlag: "address", helpMessage: "Memory offset address to patch.")
@@ -20,7 +20,7 @@ let verboseOption = BoolOption(shortFlag: "v", longFlag: "verbose", helpMessage:
 let helpOption = BoolOption(shortFlag: "h", longFlag: "help", helpMessage: "Prints a help message.")
 
 let cli = CommandLineKit.CommandLine()
-cli.addOptions(processOption, expectedMemoryOption, patchedMemoryOption, offsetAddressOption, verboseOption, helpOption)
+cli.addOptions(inputOption, expectedMemoryOption, patchedMemoryOption, offsetAddressOption, verboseOption, helpOption)
 
 do {
     try cli.parse(strict: true)
@@ -42,17 +42,17 @@ guard getuid() == 0 else {
 }
 
 do {    
-    guard let processString = processOption.value else {
+    guard let input = inputOption.value else {
         Logger.log(fatalError: "No process specified.")
     }
 
     var process: MachProcess
     
-    if let pid = Int(processString) {
+    if let pid = Int(input) {
         try process = MachProcess(pid: pid)
     }
     else {
-        try process = MachProcess(processName: processString)
+        try process = MachProcess(processName: input)
     }
 
     Logger.log(important: "PID: \(process.pid)")
@@ -77,5 +77,5 @@ do {
     Logger.log(success: "Memory correctly patched at \(patchAddress.hexString): \(expectedMemory) -> \(patchedMemory)")
 }
 catch {
-    Logger.log(fatalError: error.localizedDescription)
+    Logger.log(fatalError: error)
 }

@@ -1,0 +1,21 @@
+name: Continuous Integration
+
+on:
+  - push
+  - pull_request
+
+jobs:
+  continuous-integration:
+    strategy:
+      matrix:
+        os:
+          - macOS-latest
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v1
+      - name: Install Swift
+        uses: YOCKOW/Action-setup-swift@master
+        with:
+          swift-version: '5.1'
+      - name: Test
+        run: swift test --enable-test-discovery
