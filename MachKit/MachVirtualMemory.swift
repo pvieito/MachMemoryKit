@@ -80,7 +80,7 @@ public class MachVirtualMemory {
     /// Base address of the executable in the memory layout.
     public let baseAddress: Address
 
-    /// Offset of the base address with respect of the typical Mach-O base addres, 0x100000000.
+    /// Offset of the base address with respect of the typical Mach-O base address, 0x100000000.
     public let aslrOffset: Address
 
     internal init(pid: pid_t) throws {
