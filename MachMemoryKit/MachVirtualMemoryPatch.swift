@@ -1,6 +1,6 @@
 //
 //  MachVirtualMemoryPatch.swift
-//  MachKit
+//  MachMemoryKit
 //
 //  Created by Pedro José Pereira Vieito on 7/5/17.
 //  Copyright © 2017 Pedro José Pereira Vieito. All rights reserved.
@@ -32,7 +32,7 @@ extension MachVirtualMemory {
     /// Modifies the specified expected bytes with some patched bytes at the patch address.
     ///
     /// This function will check if the memory at the patch address is the expected one and then
-    /// wil try to modify it with the specified patch.
+    /// will try to modify it with the specified patch.
     ///
     /// Note: the expected memory bytes and the patched memory bytes should be of the same length.
     ///
@@ -57,7 +57,7 @@ extension MachVirtualMemory {
     /// Modifies the specified expected bytes with some patched bytes at the patch address.
     ///
     /// This function will check if the memory at the patch address is the expected one and then
-    /// wil try to modify it with the specified patch.
+    /// will try to modify it with the specified patch.
     ///
     /// Note: the expected memory bytes and the patched memory bytes should be of the same length.
     ///

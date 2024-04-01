@@ -1,6 +1,6 @@
 //
 //  MachProcess.swift
-//  MachKit
+//  MachMemoryKit
 //
 //  Created by Pedro José Pereira Vieito on 6/5/17.
 //  Copyright © 2017 Pedro José Pereira Vieito. All rights reserved.

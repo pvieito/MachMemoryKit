@@ -1,6 +1,6 @@
 //
 //  MachProcessTests.swift
-//  MachKitTests
+//  MachMemoryKitTests
 //
 //  Created by Pedro José Pereira Vieito on 22/11/2019.
 //  Copyright © 2019 Pedro José Pereira Vieito. All rights reserved.
@@ -9,7 +9,7 @@
 import Foundation
 import FoundationKit
 import XCTest
-@testable import MachKit
+@testable import MachMemoryKit
 
 class MachProcessTests: XCTestCase {
     static let machoHeader = Data(hexString: "CFFAEDFE")

@@ -1,11 +1,11 @@
-# MachKit
+# MachMemoryKit
 
 Swift framework to inspect, write and patch processes virtual memory.
 
 ## Usage
 
 ```swift
-import MachKit
+import MachMemoryKit
 
 guard getuid() == 0 else {
     print("Error: You have to run this as root.")
