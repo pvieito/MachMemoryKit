@@ -21,7 +21,7 @@ This file provides critical development and deployment guidelines for AI agents 
 - **ProcessInfo**: `launchExtensionsPaneInSystemSettings()`, `launchPrivacyAndSecurityPaneInSystemSettings()`
 - **URL**: `open(withAppBundleIdentifier:)` for cross-platform URL opening
 - **Process**: Enhanced execution utilities with output capture
-- **UserDefaults**: `@UserDefaults.Wrapper` property wrapper for cleaner preferences
+- **UserDefaults**: `@UserDefaults.Wrapper` property wrapper for cleaner app preferences
 
 ### Working with External SwiftPM Dependencies
 - External dependencies are separate SwiftPM repositories shared across multiple apps.
