@@ -18,8 +18,8 @@ let package = Package(
         )
     ],
     dependencies: [
-        .package(url: "git@github.com:pvieito/LoggerKit.git", branch: "master"),
-        .package(url: "git@github.com:pvieito/FoundationKit.git", branch: "master"),
+        .package(url: "git@github.com:pvieito/LoggerKit.git", branch: "main"),
+        .package(url: "git@github.com:pvieito/FoundationKit.git", branch: "main"),
         .package(url: "https://github.com/apple/swift-argument-parser", from: "1.0.0"),
     ],
     targets: [
