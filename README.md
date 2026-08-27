@@ -1,6 +1,6 @@
 # MachMemoryKit
 
-Swift framework to inspect, write and patch processes virtual memory.
+Swift framework to inspect, write and patch a process's virtual memory.
 
 ## Usage
 
@@ -15,8 +15,8 @@ guard getuid() == 0 else {
 do {
     let process = try MachProcess(processName: "Safari")
 
-    let baseAddres = process.memory.baseAddress
-    let memoryRange = MachVirtualMemory.AddressRange(start: baseAddres, size: 4)
+    let baseAddress = process.memory.baseAddress
+    let memoryRange = MachVirtualMemory.AddressRange(start: baseAddress, size: 4)
     
     let headerBytes = try process.memory.readBytes(on: memoryRange)
     
@@ -30,7 +30,7 @@ catch {
 
 ## Note
 
-`Attach.c` and `Attach.h` is code from [MachOView](https://sourceforge.net/projects/machoview/) and it is subject to its license.
+`Attach.c` and `Attach.h` contain code from [MachOView](https://sourceforge.net/projects/machoview/) and are subject to its license.
 
 ## License
 
