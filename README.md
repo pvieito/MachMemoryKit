@@ -1,6 +1,6 @@
 # MachMemoryKit
 
-Swift framework to inspect, write and patch a process's virtual memory.
+Swift framework to inspect, write, and patch a process's virtual memory.
 
 ## Usage
 
@@ -17,9 +17,9 @@ do {
 
     let baseAddress = process.memory.baseAddress
     let memoryRange = MachVirtualMemory.AddressRange(start: baseAddress, size: 4)
-    
+
     let headerBytes = try process.memory.readBytes(on: memoryRange)
-    
+
     print("Mach-O Header: \(headerBytes.hexString)")
 }
 catch {
