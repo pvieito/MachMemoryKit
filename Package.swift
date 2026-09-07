@@ -1,11 +1,11 @@
-// swift-tools-version:5.9
+// swift-tools-version:6.2
 
 import PackageDescription
 
 let package = Package(
     name: "MachMemoryKit",
     platforms: [
-        .macOS(.v13),
+        .macOS(.v26),
     ],
     products: [
         .executable(
@@ -37,7 +37,7 @@ let package = Package(
             name: "MachMemoryKit",
             dependencies: [
                 "MachAttach",
-                "FoundationKit"
+                "FoundationKit",
             ],
             path: "MachMemoryKit"
         ),
@@ -47,7 +47,11 @@ let package = Package(
         ),
         .testTarget(
             name: "MachMemoryKitTests",
-            dependencies: ["MachMemoryKit", "FoundationKit"]
+            dependencies: [
+                "MachMemoryKit",
+                "FoundationKit",
+            ]
         )
-    ]
+    ],
+    swiftLanguageModes: [.v5]
 )
